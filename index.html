@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tojosoa - Développeuse Web</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;font-family:'Segoe UI',sans-serif}
+body{background:#120826;color:white}
+nav{position:fixed;top:0;width:100%;background:rgba(18,8,38,.95);display:flex;justify-content:space-between;align-items:center;padding:15px 40px;z-index:100;border-bottom:1px solid #4c1d95}
+.logo{font-size:24px;font-weight:800}.logo span{color:#a855f7}
+nav a{margin-left:18px;text-decoration:none;color:#e9d5ff;font-weight:600;font-size:15px}
+nav a:hover{color:#a855f7}
+.accueil{min-height:100vh;display:flex;align-items:center;justify-content:space-between;padding:110px 40px 40px;gap:30px;background:linear-gradient(135deg,#120826,#2d1b4e 60%,#4c1d95)}
+.welcome{color:#d8b4fe;font-weight:700;font-size:19px;min-height:28px}
+.accueil h1{font-size:42px;line-height:1.2;margin:12px 0}.accueil h1 span{color:#c084fc}
+.accueil h2{color:#d8b4fe;margin-bottom:10px;font-weight:500}
+.accueil p.desc{color:#e9d5ff;line-height:1.6;max-width:520px}
+.btn{padding:12px 22px;border-radius:25px;text-decoration:none;font-weight:700;display:inline-block;margin:18px 10px 0 0}
+.btn-dark{background:#a855f7;color:white}.btn-light{background:white;color:#4c1d95}
+.photo-box{position:relative;text-align:center}
+.photo-box img{width:300px;height:300px;object-fit:cover;border-radius:50%;border:6px solid #a855f7;box-shadow:0 15px 35px rgba(168,85,247,.5);animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+.badge{position:absolute;bottom:15px;left:30px;background:#22c55e;color:white;padding:6px 12px;border-radius:20px;font-size:13px}
+.section{padding:80px 40px;max-width:1100px;margin:auto}
+.section h2{font-size:32px;text-align:center;margin-bottom:25px}
+.card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:30px;border-radius:18px;line-height:1.75}
+.competences{background:linear-gradient(135deg,#1a0b2e,#2d1b4e 50%,#4c1d95);padding:80px 40px;text-align:center}
+.competences .subtitle{color:#d8b4fe;margin-bottom:35px}
+.tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;max-width:1200px;margin:auto}
+.tech-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:25px 20px;text-align:left;transition:.3s}
+.tech-card:hover{transform:translateY(-8px);border-color:#a855f7;box-shadow:0 15px 35px rgba(168,85,247,.35)}
+.tech-icon{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:15px}
+.f1{background:#ec4899}.f2{background:#8b5cf6}.f3{background:#06b6d4}.f4{background:#f59e0b}
+.tech-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:15px}
+.tech-badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);padding:5px 10px;border-radius:20px;font-size:12px;font-weight:600}
+.tech-card p{font-size:13px;display:flex;justify-content:space-between;margin-top:10px;color:#e9d5ff}
+.bar{background:rgba(255,255,255,.15);height:8px;border-radius:10px;overflow:hidden;margin-top:4px}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,#a855f7,#ec4899);border-radius:10px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.project-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:25px;border-radius:18px;transition:.3s}
+.project-card:hover{transform:translateY(-5px);border-color:#a855f7}
+.project-card h3{margin-bottom:10px}.project-card p{color:#d8b4fe;line-height:1.6}
+.contact{text-align:center}
+.contact form{max-width:500px;margin:25px auto;display:flex;flex-direction:column;gap:12px}
+.contact input,.contact textarea{padding:13px;border:1px solid #4c1d95;border-radius:10px;background:#1e1033;color:white;outline:none}
+.contact button{background:#a855f7;color:white;padding:13px;border:none;border-radius:10px;font-weight:700;cursor:pointer}
+footer{text-align:center;padding:20px;background:#0a0318;color:#d8b4fe}
+.cv-preview{width:100%;max-width:600px;border-radius:15px;border:2px solid #a855f7;margin:20px auto;display:block}
+@media(max-width:1024px){.tech-grid{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){nav{padding:15px 20px}nav a{margin-left:10px;font-size:13px}.accueil{flex-direction:column-reverse;text-align:center;padding:110px 20px 30px}.accueil h1{font-size:30px}.photo-box img{width:220px;height:220px}.tech-grid,.grid3{grid-template-columns:1fr}.section,.competences{padding:60px 20px}}
+</style>
+</head>
+<body>
+<nav><div class="logo">Tojosoa<span>.</span></div><div><a href="#accueil">Accueil</a><a href="#apropos">À propos</a><a href="#competences">Compétences</a><a href="#projets">Projets</a><a href="#cv">CV</a><a href="#contact">Contact</a></div></nav>
+
+<section id="accueil" class="accueil">
+<div>
+<p class="welcome" id="type"></p>
+<h1>Je suis <span>Randrianantenaina Tojosoa</span></h1>
+<h2>Développeuse Web | L2 Informatique | 23 ans</h2>
+<p class="desc">Je transforme vos idées en sites web modernes, rapides et responsives.</p>
+<a href="https://github.com/" target="_blank" class="btn btn-dark">Voir mon GitHub</a>
+<a href="#contact" class="btn btn-light">Contactez-moi</a>
+</div>
+<div class="photo-box"><img src="photo.jpg" alt="Tojosoa"><span class="badge">Disponible ✅</span></div>
+</section>
+
+<section id="apropos" class="section">
+<h2>À propos de moi</h2>
+<div class="card">
+<p><b>Âge :</b> 23 ans</p>
+<p><b>Niveau :</b> L2 Informatique</p>
+<p><b>Métier :</b> Développeuse Web Full Stack</p><br>
+<h3>Ma motivation</h3>
+<p>Passionnée par l'informatique et le développement web, je suis une jeune femme sérieuse, dynamique et motivée. Mon objectif est de créer des applications utiles, simples à utiliser et accessibles à tous.</p>
+<p>Je suis rigoureuse, curieuse et je m'adapte vite. Chaque projet est pour moi une occasion d'apprendre, de progresser et de donner le meilleur de moi-même.</p>
+</div>
+</section>
+
+<section id="competences" class="competences">
+<h2>Technologies Maîtrisées</h2>
+<p class="subtitle">Ce que je maîtrise pour créer vos projets web</p>
+<div class="tech-grid">
+<div class="tech-card"><div class="tech-icon f1">🎨</div><h3>Frontend</h3><div class="tech-list"><span class="tech-badge">HTML</span><span class="tech-badge">CSS</span><span class="tech-badge">JavaScript</span><span class="tech-badge">React</span></div><p>HTML <b>95%</b></p><div class="bar"><span style="width:95%"></span></div><p>CSS <b>90%</b></p><div class="bar"><span style="width:90%"></span></div><p>JavaScript / React <b>85%</b></p><div class="bar"><span style="width:85%"></span></div></div>
+<div class="tech-card"><div class="tech-icon f2">⚙️</div><h3>Backend</h3><div class="tech-list"><span class="tech-badge">PHP</span><span class="tech-badge">Node.js</span><span class="tech-badge">Python</span><span class="tech-badge">Django</span></div><p>PHP <b>85%</b></p><div class="bar"><span style="width:85%"></span></div><p>Node.js <b>80%</b></p><div class="bar"><span style="width:80%"></span></div><p>Python / Django <b>80%</b></p><div class="bar"><span style="width:80%"></span></div></div>
+<div class="tech-card"><div class="tech-icon f3">🗄️</div><h3>Bases de Données</h3><div class="tech-list"><span class="tech-badge">PostgreSQL</span><span class="tech-badge">MySQL</span><span class="tech-badge">SQL</span></div><p>PostgreSQL <b>85%</b></p><div class="bar"><span style="width:85%"></span></div><p>MySQL <b>90%</b></p><div class="bar"><span style="width:90%"></span></div><p>SQL <b>88%</b></p><div class="bar"><span style="width:88%"></span></div></div>
+<div class="tech-card"><div class="tech-icon f4">🧰</div><h3>Outils</h3><div class="tech-list"><span class="tech-badge">GitHub</span><span class="tech-badge">Figma</span><span class="tech-badge">VS Code</span><span class="tech-badge">Responsive</span></div><p>Git / GitHub <b>88%</b></p><div class="bar"><span style="width:88%"></span></div><p>Responsive Design <b>92%</b></p><div class="bar"><span style="width:92%"></span></div><p>UI / UX <b>82%</b></p><div class="bar"><span style="width:82%"></span></div></div>
+</div>
+</section>
+
+<section id="projets" class="section">
+<h2>Mes Projets</h2>
+<div class="grid3">
+<div class="project-card"><h3>🌐 Site Vitrine</h3><p>Site moderne et responsive pour entreprise, HTML, CSS, JavaScript.</p></div>
+<div class="project-card"><h3>🛒 Application E-commerce</h3><p>Gestion de produits, panier et commandes, PHP / MySQL.</p></div>
+<div class="project-card"><h3>📱 App de Gestion</h3><p>Application de gestion avec tableau de bord, React + Node.js + PostgreSQL.</p></div>
+</div>
+</section>
+
+<section id="cv" class="section" style="text-align:center">
+<h2>Mon CV</h2>
+<img src="CV-Tojosoa.png" alt="CV Tojosoa" class="cv-preview">
+<br>
+<a href="CV-Tojosoa.png" download class="btn btn-dark">📄 Télécharger mon CV</a>
+</section>
+
+<section id="contact" class="section contact">
+<h2>Contact Rapide</h2>
+<p>📱 <b>035 63 398 30</b></p>
+<p>📧 <b>tojosoaradrianantenaina@gmail.com</b></p><br>
+<form onsubmit="alert('Merci ! Message envoyé.');return false;">
+<input type="text" placeholder="Votre nom" required>
+<input type="email" placeholder="Votre email" required>
+<textarea rows="4" placeholder="Votre message..." required></textarea>
+<button type="submit">Envoyer</button>
+</form>
+</section>
+
+<footer>© 2026 Randrianantenaina Tojosoa - Tous droits réservés</footer>
+<script>
+const msg="Bonjour, bienvenue sur mon portfolio !";
+let i=0; const el=document.getElementById('type');
+const inter=setInterval(()=>{el.textContent=msg.slice(0,i); i++; if(i>msg.length) clearInterval(inter);},60);
+</script>
+</body>
+</html>
